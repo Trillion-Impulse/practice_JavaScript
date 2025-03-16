@@ -3,6 +3,16 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <style>
+            .practiceClassSelector{
+                font-size: xx-large;
+                font-weight: bold;
+            }
+            #practiceIDSelector{
+                color: gray;
+                background-color: goldenrod;
+            }
+        </style>
     </head>
     <body>
         This is practice_JS using body tag in CSS<br>
@@ -51,5 +61,16 @@
             var word="This is a sentence using a variable named 'word'";
             document.write("<br>"+word+"<br>");
         </script>
+        <br>
+        <h1 style="color: blue;">This is a sentence using the property of color in CSS</h1>
+        <p style="color: white; background-color: green;">
+            This is a paragraph using the properties of color and background-color in CSS<br>
+            The value of the color property is white, and the background-color property is green
+        </p>
+        <span style="font-size: x-large;">This is a sentence using the span tag to apply the font-size property in CSS</span><br>
+        <br>
+        <span class="practiceClassSelector">This is a sentence for practicing the class selector</span><br>
+        <span class="practiceClassSelector" id="practiceIDSelector">
+            This is a sentence for checking the priority of the class selector and the ID selector</span><br>
     </body>
 </html>

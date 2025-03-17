@@ -132,5 +132,19 @@
                 }
             }
         </script>
+        <input id="fruitsList" type="button" value="displayList" onclick="
+            var fruits = ['apple', 'banana'];
+            var i = 0, j = 0;
+            while(i<fruits.length){
+                document.write(fruits[i]+'<br>');
+                i+=1;
+                if(i===2 && j===0){
+                    i=0;
+                    j=1;
+                    fruits.push('cherry');
+                    document.write('<br>'+'list was updated'+'<br>'+'<br>');
+                }
+            }
+        "><br>
     </body>
 </html>

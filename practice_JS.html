@@ -118,5 +118,19 @@
             }
         "><br>
         <br>
+        <script>
+            var fruits = ["apple", "banana"];
+            var i = 0, j = 0;
+            while(i<fruits.length){
+                document.write(fruits[i]+"<br>");
+                i+=1;
+                if(i===2 && j===0){
+                    i=0;
+                    j=1;
+                    fruits.push("cherry");
+                    document.write("<br>"+"list was updated"+"<br>"+"<br>");
+                }
+            }
+        </script>
     </body>
 </html>

@@ -13,6 +13,19 @@
                 background-color: goldenrod;
             }
         </style>
+        <script>
+            function nightDayHandler(self){
+                var target = document.querySelector('body');
+                if(self.value === 'night mode'){
+                    target.style.backgroundColor = 'darkgray';
+                    self.value = 'day mode'
+                }
+                else{
+                    target.style.backgroundColor = 'white';
+                    self.value = 'night mode'
+                }
+            }
+        </script>
     </head>
     <body>
         This is practice_JS using body tag in CSS<br>
@@ -107,15 +120,7 @@
         1&gt;2<br>
         <br>
         <input id="changeDayAndNight" type="button" value="night mode" onclick="
-            var target = document.querySelector('body');
-            if(this.value === 'night mode'){
-                target.style.backgroundColor = 'darkgray';
-                this.value = 'day mode'
-            }
-            else{
-                target.style.backgroundColor = 'white';
-                this.value = 'night mode'
-            }
+            nightDayHandler(this)
         "><br>
         <br>
         <script>

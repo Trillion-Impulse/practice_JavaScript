@@ -151,5 +151,19 @@
                 }
             }
         "><br>
+        <br>
+        <script>
+            var coworkers={
+                "programmer": "T_I",
+                "designer": "T_I"
+            };
+            document.write(coworkers["programmer"]+"<br>");
+
+            coworkers.showAll=function() {
+                for(var key in this){
+                    document.write(key+": "+this[key]+"<br>");
+                }
+            }
+        </script>
     </body>
 </html>

@@ -40,3 +40,13 @@ var Mymath = {
 console.log("Mymath.PI",Mymath.PI);
 console.log("Mymath.Random",Mymath.Random());
 console.log("Mymath.Floor(3.9)",Mymath.Floor(3.9));
+
+var kim = {
+    name:'kim',
+    first:10,
+    second:20,
+    sum:function(){
+        return this.first+this.second;
+    }
+}
+console.log("kim.sum()",kim.sum());

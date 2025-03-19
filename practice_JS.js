@@ -24,3 +24,6 @@ console.groupEnd('object loop');
 // console.log("memberObject.C", memberObject["C"]);
 // delete memberObject.A
 // console.log("after delete memberObject.A", memberObject.A);
+console.log("Math.PI",Math.PI);
+console.log("Math.random", Math.random());
+console.log("Math.floor(3.9)", Math.floor(3.9));

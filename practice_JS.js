@@ -27,3 +27,16 @@ console.groupEnd('object loop');
 console.log("Math.PI",Math.PI);
 console.log("Math.random", Math.random());
 console.log("Math.floor(3.9)", Math.floor(3.9));
+
+var Mymath = {
+    PI: Math.PI,
+    Random: function() {
+        return Math.random();
+    },
+    Floor: function(value) {
+        return Math.floor(value);
+    }
+}
+console.log("Mymath.PI",Mymath.PI);
+console.log("Mymath.Random",Mymath.Random());
+console.log("Mymath.Floor(3.9)",Mymath.Floor(3.9));

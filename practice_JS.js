@@ -50,3 +50,26 @@ var kim = {
     }
 }
 console.log("kim.sum()",kim.sum());
+
+var d1 = new Date('2025-03-20');
+console.log("d1.getFullYear",d1.getFullYear());
+console.log("d1.getMonth",d1.getMonth());
+console.log("d1.getDay",d1.getDay());
+// console.log("Date",Date);
+
+function Person(name,first,second,third){
+    this.name=name;
+    this.first=first;
+    this.second=second;
+    this.third=third;
+    this.sum = function(){
+        return this.first+this.second+this.third;
+    }
+}
+console.log("Person()",Person());
+console.log("new Person()",new Person());
+
+var kim2 = new Person('kim2',10,20,30);
+var kim3 = new Person('kim3',20,30,40);
+console.log("kim2.sum()",kim2.sum());
+console.log("kim3.sum()",kim3.sum());

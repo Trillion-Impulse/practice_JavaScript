@@ -80,8 +80,14 @@ console.log("kim2.sum()",kim2.sum());
 console.log("kim3.sum()",kim3.sum());
 
 class People{
-
+    constructor(name,first,second,third){
+        this.name = name;
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        console.log('constructor');
+    }
 }
 
-var kim10 = new People();
+var kim10 = new People('kim10',30,40,50);
 console.log('kim10',kim10);

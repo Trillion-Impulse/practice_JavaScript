@@ -62,14 +62,19 @@ function Person(name,first,second,third){
     this.first=first;
     this.second=second;
     this.third=third;
-    this.sum = function(){
-        return this.first+this.second+this.third;
-    }
 }
-console.log("Person()",Person());
-console.log("new Person()",new Person());
+
+Person.prototype.sum = function(){
+    return this.first+this.second+this.third;
+}
+
+// console.log("Person()",Person());
+// console.log("new Person()",new Person());
 
 var kim2 = new Person('kim2',10,20,30);
+kim2.sum = function(){
+    return "kim2: "+(this.first+this.second+this.third);
+}
 var kim3 = new Person('kim3',20,30,40);
 console.log("kim2.sum()",kim2.sum());
 console.log("kim3.sum()",kim3.sum());

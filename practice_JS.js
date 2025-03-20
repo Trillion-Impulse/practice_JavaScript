@@ -78,3 +78,10 @@ kim2.sum = function(){
 var kim3 = new Person('kim3',20,30,40);
 console.log("kim2.sum()",kim2.sum());
 console.log("kim3.sum()",kim3.sum());
+
+class People{
+
+}
+
+var kim10 = new People();
+console.log('kim10',kim10);

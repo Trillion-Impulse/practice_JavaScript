@@ -87,7 +87,21 @@ class People{
         this.third = third;
         console.log('constructor');
     }
+    sum(){
+        return 'classSum: '+(this.first+this.second+this.third);
+    }
 }
+
+// People.prototype.sum = function(){
+//     return 'prototypeSum: '+(this.first+this.second+this.third);
+// }
 
 var kim10 = new People('kim10',30,40,50);
 console.log('kim10',kim10);
+console.log('kim10.sum',kim10.sum());
+
+var kim11 = new People('kim11',40,50,60);
+kim11.sum = function(){
+    return 'kim11Sum: '+(this.first+this.second+this.third);
+}
+console.log('kim11.sum',kim11.sum());

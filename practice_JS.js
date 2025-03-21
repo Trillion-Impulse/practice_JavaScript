@@ -62,10 +62,13 @@ function Person(name,first,second,third){
     this.first=first;
     this.second=second;
     this.third=third;
+    this.sum = function(){
+        return "sum: "+this.first+this.second+this.third;
+    }
 }
 
 Person.prototype.sum = function(){
-    return this.first+this.second+this.third;
+    return "prototypeSum: "+this.first+this.second+this.third;
 }
 
 // console.log("Person()",Person());

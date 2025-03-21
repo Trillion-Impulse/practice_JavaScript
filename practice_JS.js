@@ -95,6 +95,12 @@ class People{
     }
 }
 
+class PeoplePlus extends People{
+    avg(){
+        return (this.first+this.second+this.third)/3;
+    }
+}
+
 // People.prototype.sum = function(){
 //     return 'prototypeSum: '+(this.first+this.second+this.third);
 // }
@@ -108,3 +114,7 @@ kim11.sum = function(){
     return 'kim11Sum: '+(this.first+this.second+this.third);
 }
 console.log('kim11.sum',kim11.sum());
+
+var kim12 = new PeoplePlus('kim12',50,60,70);
+console.log('kim12.sum',kim12.sum());
+console.log('kim12.avg',kim12.avg());

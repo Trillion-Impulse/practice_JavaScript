@@ -91,13 +91,20 @@ class People{
         console.log('constructor');
     }
     sum(){
-        return 'classSum: '+(this.first+this.second+this.third);
+        return this.first+this.second+this.third;
     }
 }
 
 class PeoplePlus extends People{
+    constructor(name,first,second,third,fourth){
+        super(name,first,second,third);
+        this.fourth=fourth;
+    }
+    sum(){
+        return 'extendsSum: '+(super.sum()+this.fourth);
+    }
     avg(){
-        return (this.first+this.second+this.third)/3;
+        return (this.first+this.second+this.third+this.fourth)/4;
     }
 }
 
@@ -115,6 +122,6 @@ kim11.sum = function(){
 }
 console.log('kim11.sum',kim11.sum());
 
-var kim12 = new PeoplePlus('kim12',50,60,70);
+var kim12 = new PeoplePlus('kim12',50,60,70,80);
 console.log('kim12.sum',kim12.sum());
 console.log('kim12.avg',kim12.avg());

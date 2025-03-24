@@ -125,3 +125,12 @@ console.log('kim11.sum',kim11.sum());
 var kim12 = new PeoplePlus('kim12',50,60,70,80);
 console.log('kim12.sum',kim12.sum());
 console.log('kim12.avg',kim12.avg());
+
+var superObj = {superVal: 'super'}
+var subObj = {subVal:'sub'}
+subObj.__proto__ = superObj;
+console.log('subObj.subVal: ',subObj.subVal);
+console.log('subObj.superVal: ',subObj.superVal);
+subObj.superVal ='sub';
+console.log('superObj.superVal: ',superObj.superVal);
+console.log('subObj.superVal: ',subObj.superVal);

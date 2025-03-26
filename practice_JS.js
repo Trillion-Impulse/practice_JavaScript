@@ -136,3 +136,37 @@ console.log('subObj.superVal: ',subObj.superVal);
 subObj.superVal ='sub';
 console.log('superObj.superVal: ',superObj.superVal);
 console.log('subObj.superVal: ',subObj.superVal);
+
+kim100 = {
+    name:'kim100',
+    first:10, second:20,
+    sum:function(){
+        return this.first+this.second;
+    }
+}
+
+console.log('kim100.sum(): ',kim100.sum());
+
+// kim101.__proto__ = kim100;
+kim101 = {
+    name: 'kim101',
+    first:20, second:30,
+    avg:function(){
+        return (this.first+this.second)/2;
+    }
+}
+kim101.__proto__ = kim100;
+
+console.log('kim101.sum(): ',kim101.sum());
+console.log('kim101.avg(): ',kim101.avg());
+
+kim102 = Object.create(kim100);
+kim102.name='kim102';
+kim102.first=30;
+kim102.second=40;
+kim102.avg=function(){
+    return (this.first+this.second)/2;
+}
+
+console.log('kim102.sum(): ',kim102.sum());
+console.log('kim102.avg(): ',kim102.avg());

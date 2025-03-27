@@ -175,8 +175,11 @@ var kim200={name:'kim200', first:10, second:20};
 var kim201={name:'kim201', first:20, second:30};
 kim201.__proto__=kim200;
 function sum(prefix){
-    return prefix+this.first+this.second;
+    return prefix+(this.first+this.second);
 }
 
 console.log('sum.call(kim200)',sum.call(kim200, ': '));
 console.log('sum.call(kim201)',sum.call(kim201, ': '));
+
+var kim200Sum = sum.bind(kim200,':');
+console.log('kim200Sum()',kim200Sum());

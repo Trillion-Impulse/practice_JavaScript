@@ -183,3 +183,30 @@ console.log('sum.call(kim201)',sum.call(kim201, ': '));
 
 var kim200Sum = sum.bind(kim200,':');
 console.log('kim200Sum()',kim200Sum());
+
+function Person100(name, first, second){
+    this.name=name;
+    this.first=first;
+    this.second=second;
+}
+
+Person100.prototype.sum = function(){
+    return this.first+this.second;
+}
+
+function Person100Plus(name, first,second,third){
+    Person100.call(this,name,first,second);
+    this.third=third;
+}
+
+// Person100Plus.prototype.__proto__=Person100.prototype;
+Person100Plus.prototype=Object.create(Person100.prototype);
+Person100Plus.prototype.constructor=Person100Plus;
+Person100Plus.prototype.avg=function(){
+    return (this.first+this.second+this.third)/3;
+}
+
+var kim500 = new Person100Plus('kim500',10,20,30);
+console.log('kim500.sum(): ',kim500.sum());
+console.log('kim500.avg(): ',kim500.avg());
+console.log('kim500.constructor: ',kim500.constructor);

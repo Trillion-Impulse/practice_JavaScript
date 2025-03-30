@@ -210,3 +210,21 @@ var kim500 = new Person100Plus('kim500',10,20,30);
 console.log('kim500.sum(): ',kim500.sum());
 console.log('kim500.avg(): ',kim500.avg());
 console.log('kim500.constructor: ',kim500.constructor);
+
+const add = (a,b) =>{
+    return a+b;
+}
+
+console.log(add(2,3));
+
+const square = x => x*x;
+
+console.log(square(5));
+
+const multiply = (a,b) => a*b;
+
+console.log(multiply(2,3));
+
+const hi = () => console.log("hi");
+
+hi();

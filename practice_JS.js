@@ -228,3 +228,14 @@ console.log(multiply(2,3));
 const hi = () => console.log("hi");
 
 hi();
+
+var v=1;
+console.log('v: ',v);
+v=2;
+console.log('v: ',v);
+
+const c=1;
+console.log('c: ',c);
+// c=2;
+console.log('c: ',c);
+

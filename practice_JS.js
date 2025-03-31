@@ -239,3 +239,30 @@ console.log('c: ',c);
 // c=2;
 console.log('c: ',c);
 
+var v1 = 1;
+var v2 = 1;
+console.log(v1,v2,v1===v2);
+
+var o1 = {name:'kim'}
+var o2 = {name:'kim'}
+console.log(o1,o2,o1===o2);
+
+var o3 = Object.assign({},o1);
+o3.name='lee';
+console.log(o2,o3,o2===o3);
+
+var o4 = {name: 'kim', score: [1,2]}
+var o5 = Object.assign({},o4);
+o5.score = o5.score.concat();
+o5.score.push(3);
+console.log(o4,o5,o4===o5,o4.score===o5.score);
+
+function fn(person){
+    person=Object.assign({},person);
+    person.name='lee';
+    return person;
+}
+
+var o6 = {name:'kim'};
+var o7 = fn(o6);
+console.log(o6,o7);

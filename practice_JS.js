@@ -229,6 +229,15 @@ const hi = () => console.log("hi");
 
 hi();
 
+function arrowFunction(){
+    this.first = 1;
+    this.plusOne=() => this.first+1;
+}
+
+const arrowFunctionObject = new arrowFunction();
+console.log('arrowFunctionObject.first: ',arrowFunctionObject.first);
+console.log('arrowFunctionObject.plusOne: ',arrowFunctionObject.plusOne());
+
 var v=1;
 console.log('v: ',v);
 v=2;

@@ -2,6 +2,55 @@
 how to use JavaScript
 ***
 
+## arrow function
+- 함수 표현식을 간단하게 작성할 수 있도록 해주는 구문
+- 전통적인 함수 선언 방식에 비해 간결
+- this 키워드의 동작 방식에 차이가 존재
+- 주로 콜백 함수나 간단한 함수에서 사용
+
+### 기본 문법
+```
+const 함수이름 = (매개변수) => {
+    // 함수 본문
+}
+
+const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(2, 3));
+```
+
+### 매개 변수가 하나일 경우
+- 매개 변수가 하나일 경우 괄호 `()`생략 가능
+```
+const square = x => x * x;
+console.log(square(5)); // 25
+```
+
+### 매개 변수가 없을 경우
+- 매개 변수가 없을 경우 빈 괄호를 사용
+```
+const greet = () => console.log('Hello, world!');
+greet();
+```
+
+### this 바인딩
+- 전통적인 함수 선언 방식에서 this는 함수가 호출될 때 결정
+- 화살표 함수에서는 this가 함수 정의 시의 환경에 의해 결정
+- 화살표 함수는 this를 "lexical scoping" 방식으로 처리하므로, 그 함수가 정의될 때의 this 값을 그대로 사용
+```
+function ArrowFunction() {
+    this.value = 1;
+    setTimeout(() => {
+        this.value++;  // 'this'는 ArrowFunction의 'this'를 그대로 참조
+        console.log(this.value);  // 2
+    }, 1000);
+}
+```
+
+---
+
 ## callback 함수
 - 다른 함수의 인수로 전달되어 실행되는 함수
 - 다른 함수가 작업을 완료한 후 실행되는 함수

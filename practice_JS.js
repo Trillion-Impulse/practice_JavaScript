@@ -279,3 +279,35 @@ console.log(o6,o7);
 words=['spray','limit','elite','exuberant','destruction','present'];
 newWords=words.filter(element=>element.length>6);
 console.log(newWords);
+
+const typeNull = null;
+const typeUndefined = undefined;
+let something;
+console.log('typeNull: ',typeNull);
+console.log('typeUndefined: ',typeUndefined);
+console.log('something: ', something);
+console.log('typeUndefined===something: ', typeUndefined===something);
+something = 123;
+console.log('something: ', something);
+const anything = 0;
+console.log('anything: ', anything);
+// anything = something;
+// anything = 456;
+console.log('anything: ', anything);
+const typeConst = {
+    first:1,
+    second:2
+}
+console.log('typeConst: ', typeConst);
+typeConst.first=2;
+console.log('typeConst: ', typeConst);
+const typeConst2 = ['first','second'];
+console.log('typeConst2: ', typeConst2);
+typeConst2.push('third');
+console.log('typeConst2: ', typeConst2);
+typeConst2.pop();
+console.log('typeConst2: ', typeConst2);
+const typeConst3 = ['first','second',];
+console.log('typeConst3: ', typeConst3);
+const typeConst4 = ['first','second',,];
+console.log('typeConst4: ', typeConst4);

@@ -329,3 +329,13 @@ console.log('days: ', days);
         
 //     }
 // }
+
+const calculator = {
+    add: function(a,b) {
+        return a+b;
+    },
+    minus: (a,b) => a-b
+}
+
+console.log(calculator.add(1,2));
+console.log(calculator.minus(2,1));

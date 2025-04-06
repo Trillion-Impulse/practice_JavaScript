@@ -311,3 +311,21 @@ const typeConst3 = ['first','second',];
 console.log('typeConst3: ', typeConst3);
 const typeConst4 = ['first','second',,];
 console.log('typeConst4: ', typeConst4);
+
+const mon = 'mon';
+const tue = 'tue';
+const wed = 'wed';
+
+const days = [mon , tue , wed];
+
+console.log('days: ', days);
+
+// console.log();
+// function name(params) {
+    
+// }
+// class name {
+//     constructor(parameters) {
+        
+//     }
+// }

@@ -339,3 +339,9 @@ const calculator = {
 
 console.log(calculator.add(1,2));
 console.log(calculator.minus(2,1));
+
+const grab = document.getElementById("grab");
+
+console.dir(grab);
+
+grab.innerText = "got you!";

@@ -345,3 +345,19 @@ const grab = document.getElementById("grab");
 console.dir(grab);
 
 grab.innerText = "got you!";
+
+let colorOfHandleGrabClick = 0;
+function handleGrabClick(){
+    console.log("grab was clicked!");
+    if (colorOfHandleGrabClick===0) {
+        grab.style.color = "green";
+        colorOfHandleGrabClick=1; 
+    }
+    else{
+        grab.style.color = "black";
+        colorOfHandleGrabClick=0;
+    }
+    
+}
+
+grab.addEventListener("click",handleGrabClick);

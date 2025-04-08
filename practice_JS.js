@@ -360,4 +360,9 @@ function handleGrabClick(){
     
 }
 
+const handleMouseEnter=()=>grab.innerText = "mouse entered";
+handleMouseLeave = () => grab.innerText = "mouse leaved";
+
 grab.addEventListener("click",handleGrabClick);
+grab.addEventListener("mouseenter",handleMouseEnter);
+grab.addEventListener("mouseleave",handleMouseLeave);

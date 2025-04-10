@@ -362,7 +362,12 @@ function handleGrabClick(){
 
 const handleMouseEnter=()=>grab.innerText = "mouse entered";
 handleMouseLeave = () => grab.innerText = "mouse leaved";
+const handleWindowResize = () => document.body.style.backgroundColor = "tomato";
+const handleWindowCopy = () => alert("copier!");
 
 grab.addEventListener("click",handleGrabClick);
 grab.addEventListener("mouseenter",handleMouseEnter);
 grab.addEventListener("mouseleave",handleMouseLeave);
+
+window.addEventListener("resize",handleWindowResize);
+window.addEventListener("copy",handleWindowCopy);

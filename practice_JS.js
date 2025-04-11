@@ -371,3 +371,15 @@ grab.addEventListener("mouseleave",handleMouseLeave);
 
 window.addEventListener("resize",handleWindowResize);
 window.addEventListener("copy",handleWindowCopy);
+
+const handleTitleClick = function() {
+    const clickedClass = "active";
+    if (h2.className === clickedClass) {
+        h2.className = "";
+    }
+    else{
+        h2.className = clickedClass;
+    }
+}
+const h2 = document.querySelector("div > h2");
+h2.addEventListener("click",handleTitleClick);

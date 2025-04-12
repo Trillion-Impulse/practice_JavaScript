@@ -373,13 +373,14 @@ window.addEventListener("resize",handleWindowResize);
 window.addEventListener("copy",handleWindowCopy);
 
 const handleTitleClick = function() {
-    const clickedClass = "active";
-    if (h2.classList.contains(clickedClass)) {
-        h2.classList.remove(clickedClass);
-    }
-    else{
-        h2.classList.add(clickedClass);
-    }
+    // const clickedClass = "active";
+    // if (h2.classList.contains(clickedClass)) {
+    //     h2.classList.remove(clickedClass);
+    // }
+    // else{
+    //     h2.classList.add(clickedClass);
+    // }
+    h2.classList.toggle("active");
 }
 const h2 = document.querySelector("div > h2");
 h2.addEventListener("click",handleTitleClick);

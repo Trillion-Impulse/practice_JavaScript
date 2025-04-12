@@ -374,11 +374,11 @@ window.addEventListener("copy",handleWindowCopy);
 
 const handleTitleClick = function() {
     const clickedClass = "active";
-    if (h2.className === clickedClass) {
-        h2.className = "";
+    if (h2.classList.contains(clickedClass)) {
+        h2.classList.remove(clickedClass);
     }
     else{
-        h2.className = clickedClass;
+        h2.classList.add(clickedClass);
     }
 }
 const h2 = document.querySelector("div > h2");

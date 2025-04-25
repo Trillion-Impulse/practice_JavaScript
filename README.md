@@ -169,3 +169,35 @@ parseInt("123px"); // 123
 - 브라우저는 HTML 태그를 내부적으로 HTML 파서를 사용해 트리 구조(DOM)로 변경
 
 ---
+
+## Template Literal
+- 기존 문자열과 달리, 백틱`을 사용해서 문자열을 감싸는 방식
+- `${}` 문법으로 변수나 표현식을 삽입 가능
+    _- `${}`: 보통 placeholder 혹은 interpolated expression 이라고 부름_
+```
+const name = "Alex";
+const age = 28;
+
+const greeting = `Hello, my name is ${name} and I'm ${age} years old.`;
+console.log(greeting);
+
+// 출력: Hello, my name is Alex and I'm 28 years old.
+```
+
+#### Tagged Template Literal
+- Template Literal에 함수를 연결해서 처리하는 방법
+
+```
+function myTag(strings, ...values) {
+  console.log(strings);
+  console.log(values);
+}
+
+const name = "Jisoo";
+myTag`Hello, ${name}!`; //myTag는 그냥 만들어낸 함수
+
+// 출력: strings: ["Hello, ", "!"]
+        values: ["Jisoo"]
+```
+
+---

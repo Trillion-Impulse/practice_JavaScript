@@ -201,3 +201,37 @@ myTag`Hello, ${name}!`; //myTag는 그냥 만들어낸 함수
 ```
 
 ---
+
+## NaN
+- Not a Number
+- 숫자가 아님을 나타내는 숫자 값
+- 타입: Number
+- 자기 자신과 동등 비교가 flase
+```
+console.log(NaN === NaN); // false
+```
+
+### isNaN
+- NaN인지 여부를 판단하는 함수
+- isNaN은 내부적으로 값을 숫자로 변환한 후, 그 결과가 NaN인지 판단
+```
+isNaN("123") // false (문자열이지만 숫자로 변환되므로)
+isNaN(123) // false
+isNaN("undefined") // true
+isNaN("abc") // true
+Number.isNaN(NaN) // true
+```
+
+### Number.isNaN
+- ES6부터 더 엄격한 판단이 가능한 `Number.isNaN` 도입
+- 내부적으로 값을 숫자로 변환하지 않음
+- 값이 실제로 NaN일 때만 true를 반환
+```
+Number.isNaN("123") // false
+isNaN(123) // false
+isNaN("undefined") // false
+Number.isNaN("abc") // false
+Number.isNaN(NaN) // true
+```
+
+---

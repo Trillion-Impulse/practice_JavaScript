@@ -184,7 +184,7 @@ console.log(greeting);
 // 출력: Hello, my name is Alex and I'm 28 years old.
 ```
 
-#### Tagged Template Literal
+### Tagged Template Literal
 - Template Literal에 함수를 연결해서 처리하는 방법
 
 ```

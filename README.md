@@ -135,6 +135,114 @@ function ArrowFunction() {
 
 ---
 
+## Promise
+- 비동기 작업이 맞이할 미래의 완료 또는 실패와 그 결과 값을 나타내는 객체
+- 기본 구조
+    ```
+        const promise = new Promise((resolve, reject) => {
+            // 비동기 작업 수행
+        });
+
+        promise
+            .then
+            .catch
+            .finally
+    ```
+
+### Promise의 상태
+- 대기(pending): 초기 상태
+- 이행(fulfilled): 연산이 성공적으로 완료
+- 거부(rejected): 연산이 실패
+
+### Promise의 메서드
+- `.then(onFulfilled, onRejected)`
+    - 프로미스가 이행했을 때, 거부했을 때 호출될 콜백 함수를 예약
+    - promise를 리턴
+    - return을 사용하지 않으면 undefined를 리턴
+    - `onFulfilled`: 이행했을 때 호출하는 함수
+    - `onRejected`: 거부했을 때 호출하는 함수
+    - 가독성을 위해 이행은 `.then()`, 거부는 `.catch()` 사용
+
+- `.catch()`
+    - 프로미스가 거부했을 때 호출될 콜백 함수를 예약
+    - 체이닝된 모든 `.then()`에서 발생한 error를 모두 받을 수 있음
+    - promise를 리턴
+    - return을 사용하지 않으면 undefined를 리턴
+    - then(undefined, onRejected)의 단축 표현
+
+- `.then()`의 onRejected와 `.catch()`의 차이
+    - `.then()`의 onRejected는 해당하는 `.then()`내부의 거부만 받음
+    - `.catch()`는 체이닝된 모든 `.then()`의 거부를 모두 받을 수 있음
+        ```
+        .then()
+        .then()
+        .then()
+        .catch()
+        // 이런 구조의 경우 위의 .then에서 발생하는 모든 에러를 마지막 .catch()가 다 받음
+        ```
+
+### Promise의 처리 흐름
+```
+    const promise = new Promise((resolve, reject) => {
+        // 1. Promise의 초기 상태: pending
+        setTimeout(() => {
+            resolve("✅ 성공 결과");
+            // 또는 reject("❌ 에러 메시지");
+        }, 1000);
+    });
+
+    promise
+        .then(result => {
+            // 2. resolve가 호출되면 Promise의 상태가 fulfilled로 전환
+            // 3. result는 resolve에서 반환한 value
+            console.log(result); // ✅ 성공 결과
+        })
+        .catch(error => {
+            // 2. reject가 호출되면 Promise의 상태가 rejected로 전환
+            // 3. error는 reject에서 반환한 value
+            console.error(error); // ❌ 에러 메시지
+        })
+        .finally(() => {
+            // 4. 성공이든 실패든 항상 실행
+            console.log("🔚 작업 완료");
+        });
+        // 5. .then과 .catch는 실행 후 값으로 promise를 반환
+        // 이때 반환되는 promise의 상태는 초기 상태의 pending
+```
+### Promise의 체이닝
+- `.then()`과 `.catch()`메서드가 promise를 반환하므로 추가적인 메서드의 사용을 통해 체이닝 가능
+    ```
+        const promise = new Promise((resolve, reject) => {
+            resolve() // 혹은 reject()
+            return 리턴값
+        }
+        promise
+            .then
+            .then
+            .catch
+            .finally
+    ```
+- `.then()`의 onRejected 인자와 `.catch()`를 모두 사용할 때
+    ```
+    const promise = new Promise((resolve, reject) => {
+        resolve("성공");
+    })
+
+    function step2(result) {
+        throw new Error("step2에서 에러 발생");
+    }
+
+    promise
+        .then(onFulfilled, onRejected)
+        .catch()
+    // 이런 구조에서는 onRejected가 에러를 처리하기 때문에 `.catch()`는 실행되지 않음
+    ```
+- 여러개의 `.then()`을 체이닝 하는 경우
+    - 각 `.then()`의 onRejected가 해당하는 `.then()`의 에러를 처리
+    - onRejected를 사용하지 않는 모든 `.then()`의 에러를 `.catch()`가 모두 처리
+
+---
+
 ## .json
 - JavaScript Object Notation
 - 데이터를 저장하고 전달하기 위한 포맷

@@ -99,12 +99,39 @@ function ArrowFunction() {
 ---
 
 ## callback 함수
-- 다른 함수의 인수로 전달되어 실행되는 함수
+- 다른 함수의 입력값으로 전달되어 실행되는 함수
+    ```
+        val = function(){
+            return 리턴값
+        }
+        function fn(arg){
+            arg();
+        }
+        fn(val)    // fn함수의 입력값으로 val이 전달되어 실행
+                   // 여기서 val이 callback function
+    ```
 - 다른 함수가 작업을 완료한 후 실행되는 함수
 - 주로 비동기 작업에서 사용
 - 작업이 끝난 후 어떤 행동을 지정할 때 유용
 - callback hell: 콜백 함수의 중첩으로 코드가 복잡하고 읽기 어려워지는 현상
     - 이를 해결하기 위해 promise나 async/await를 사용
+
+### callback 함수 활용
+- 배열 연산
+    - filter(), forEach(), map() 등
+    - ex) filter(callback) 함수
+        - callback function의 결과가 true인 요소들만 모아서 새로운 배열을 반환
+        ```
+            const numbers = [1, 2, 3, 4, 5];
+            const evens = numbers.filter(n => n % 2 === 0);  // [2, 4]
+            // filter함수 내에 arrow function이 callback 함수
+        ```
+- 비동기 처리
+    - Promise, async/await, fetch, setTimeout 등
+- 이벤트 처리
+    - addEventListener
+- 데이터 처리
+    - JSON, Object methods 등
 
 ---
 

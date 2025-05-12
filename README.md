@@ -181,6 +181,14 @@ function ArrowFunction() {
         // 이런 구조의 경우 위의 .then에서 발생하는 모든 에러를 마지막 .catch()가 다 받음
         ```
 
+- `.finally(onFinally)`
+    - 프로미스를 처리(이행 or 거부)한 후 호출할 함수를 예약
+    - `onFinally`: 프로미스가 처리된 후 비동기적으로 실행될 함수
+    - 원래의 Promise 결과를 그대로 반환
+    - 결과에 관계없이 프로미스가 처리되고 나서 무언가를 처리하거나 정리할 때 유용
+    - 공통된 코드의 중복 제거와 가독성을 위해 사용
+
+
 ### Promise의 처리 흐름
 ```
     const promise = new Promise((resolve, reject) => {

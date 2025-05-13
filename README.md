@@ -250,6 +250,48 @@ function ArrowFunction() {
     - onRejected를 사용하지 않는 모든 `.then()`의 에러를 `.catch()`가 모두 처리
 
 ---
+## async & await
+
+### async function
+- Promise를 직관적이고 동기적인 코드처럼 작성할 수 있게 해주는 문법
+- Promise를 반환
+- 기본 구조
+    ```
+        async function name([param[, param[, ... param]]]) {
+            statements
+        }
+    ```
+    - name: 함수 이름
+    - param: 인자 이름
+    - statements: 함수 본문 내용, await 메커니즘 사용 가능
+
+### await
+- Promise를 기다리기 위해 사용
+- async fuction 내부에서만 사용 가능
+- await 동작 순서
+    1. Promise가 fulfill되거나 reject 될 때까지 async 함수의 실행을 일시 정지
+    2. 전달 된 Promise의 해결을 기다림
+    3. Promise가 fulfill되면 async 함수를 일시 정지한 부분부터 실행
+    4. 완료 후 Promise 에서 fulfill된 값을 반환
+    4. 만약 Promise가 reject되면, await 문은 reject된 값을 throw
+- 기본 구조
+    ```
+    function fetchUser() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+            resolve("홍길동");
+            }, 1000);
+        });
+    }
+
+    async function showUser() {
+        const user = await fetchUser();  // fetchUser()가 끝날 때까지 기다림
+        console.log("사용자:", user);
+    }
+
+    showUser();
+    ```
+---
 
 ## .json
 - JavaScript Object Notation

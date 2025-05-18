@@ -249,6 +249,71 @@ function ArrowFunction() {
     - 각 `.then()`의 onRejected가 해당하는 `.then()`의 에러를 처리
     - onRejected를 사용하지 않는 모든 `.then()`의 에러를 `.catch()`가 모두 처리
 
+### Promise.all
+- 여러 프로미스의 결과를 집계할 때 사용
+- 다음 코드를 계속 실행하기 전에 서로 연관된 비동기 작업 여러 개가 모두 이행되어야 하는 경우에 사용
+- 반환한 프로미스의 이행 결과값은 (프로미스가 아닌 값을 포함하여) 매개변수로 주어진 순회 가능한 객체에 포함된 모든 값을 담은 배열
+    ```
+    var p1 = Promise.resolve(3);
+    var p2 = 1337;
+    var p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("foo");
+        }, 100);
+    });
+
+    Promise.all([p1, p2, p3]).then((values) => {
+        console.log(values); // [3, 1337, "foo"]
+    });
+    ```
+- 입력 값으로 들어온 프로미스 중 하나라도 거부 당하면, 다른 프로미스의 이행 여부에 상관없이 첫 번째 거부 이유를 사용해 즉시 거부
+    ```
+    var p1 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("하나"), 1000);
+    });
+    var p2 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("둘"), 2000);
+    });
+    var p3 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("셋"), 3000);
+    });
+    var p4 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("넷"), 4000);
+    });
+    var p5 = new Promise((resolve, reject) => {
+        reject(new Error("거부"));
+    });
+
+    // .catch 사용:
+    Promise.all([p1, p2, p3, p4, p5])
+        .then((values) => {
+            console.log(values);
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+
+    // 콘솔 출력값:
+    // "거부"
+    ```
+- 주어진 순회 가능한 객체가 비어있는 경우에만 동기적으로 이행
+    ```
+    var p = Promise.all([]); // 즉시 이행함
+    var p2 = Promise.all([1337, "hi"]); // 프로미스가 아닌 값은 무시하지만 비동기적으로 실행됨
+    console.log(p);
+    console.log(p2);
+    setTimeout(function () {
+        console.log("the stack is now empty");
+        console.log(p2);
+    });
+
+    // 출력
+    // Promise { <state>: "fulfilled", <value>: Array[0] }
+    // Promise { <state>: "pending" }
+    // the stack is now empty
+    // Promise { <state>: "fulfilled", <value>: Array[2] }
+    ```
+
 ---
 ## async & await
 

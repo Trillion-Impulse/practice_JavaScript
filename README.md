@@ -314,6 +314,27 @@ function ArrowFunction() {
     // Promise { <state>: "fulfilled", <value>: Array[2] }
     ```
 
+### Promise.allSettled
+- 주어진 모든 프로미스를 이행하거나 거부한 후, 각 프로미스에 대한 결과를 나타내는 객체 배열을 반환
+- 서로의 성공 여부에 관련 없는 여러 비동기 작업을 수행해야 하거나, 항상 각 프로미스의 실행 결과를 알고 싶을 때 사용
+- 반환된 각 객체별로 status를 확인 가능
+    - 만약 fulfilled 상태라면 value를, rejected 상태라면면 reason 속성을 확인 가능
+```
+Promise.allSettled([
+  Promise.resolve(33),
+  new Promise((resolve) => setTimeout(() => resolve(66), 0)),
+  99,
+  Promise.reject(new Error("an error")),
+]).then((values) => console.log(values));
+
+// [
+//   {status: "fulfilled", value: 33},
+//   {status: "fulfilled", value: 66},
+//   {status: "fulfilled", value: 99},
+//   {status: "rejected",  reason: Error: an error}
+// ]
+```
+
 ---
 ## async & await
 

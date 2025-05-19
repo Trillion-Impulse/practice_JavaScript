@@ -335,7 +335,15 @@ Promise.allSettled([
 // ]
 ```
 
+### Promise.race
+- Promise.race(iterable)
+- Promise 객체를 반환
+- 반환된 프로미스 객체는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값
+    - 처음으로 이행하거나 거부한 프로미스의 값
+- 전달받은 iterable이 비어 있을 경우, 반환한 프로미스는 영원히 대기 상태
+
 ---
+
 ## async & await
 
 ### async function

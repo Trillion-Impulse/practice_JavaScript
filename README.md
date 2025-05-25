@@ -540,3 +540,46 @@ null === undefined // false -> 타입이 다름
 ```
 
 ---
+
+## 연산자  ?. vs ?? vs ||
+
+### ?.
+- 객체의 속성이나 메서드에 접근할 때 해당 객체가 null 또는 undefined인 경우 오류 없이 undefined를 반환하게 해줌
+```
+const user = {
+  name: "Alex",
+  address: {
+    city: "Seoul"
+  }
+};
+
+console.log(user.address?.city);     // "Seoul"
+console.log(user.address?.zipcode);  // undefined
+console.log(user.contact?.email);    // undefined
+```
+- `user.contact.email`처럼 직접 접근하면 `user.contact`가 없으면 원래는 오류가 나는데, ?.를 쓰면 안전하게 접근 가능
+
+### ??
+- 왼쪽 값이 null 또는 undefined일 때만 오른쪽 값을 반환
+- `false, 0, ''` 등은 그대로 유지
+```
+const username = null;
+const displayName = username ?? "Guest";
+
+console.log(displayName); // "Guest"
+```
+
+### ||
+- OR 연산자
+- 왼쪽 값이 falsy 값이면 오른쪽 값을 반환
+    - falsy 값: `false, 0, '', null, undefined, NaN`
+```
+const input = "";
+const result1 = input || "default";   // "default" (빈 문자열도 falsy이므로 대체됨)
+const result2 = input ?? "default";   // "" (null이나 undefined가 아니므로 원래 값 유지)
+
+console.log(result1); // "default"
+console.log(result2); // ""
+```
+
+---
